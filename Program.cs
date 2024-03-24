@@ -69,7 +69,7 @@ namespace Solana_check
 
                     if (balance.Result.Value > 0)
                     {
-                        string output = $"12 Seed: {mnemonicWords} | address:{String.Join(", ", wallet.Account.PublicKey)}";
+                        string output = $"12 Seed: {mnemonicWords} | address:{String.Join(", ", wallet.Account.PublicKey)} | {wallet.Account.PrivateKey}";
                         string filePath = Path.Combine(currentDirectory, "btc-wallet.txt");
 
                         await using (StreamWriter sw = File.AppendText(filePath))
