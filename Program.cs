@@ -65,9 +65,9 @@ namespace Solana_check
                     count++;
                     Wallet wallet = new Wallet(mnemonicWords);
                     var balance = await _rpcClient.GetBalanceAsync(wallet.Account.PublicKey);
-                    Console.WriteLine($"[{count}] Address: {wallet.Account.PublicKey} Balance: {balance.Result.Value}");
+                    Console.WriteLine($"[{count}] Address: {wallet.Account.PublicKey} Balance: {balance.Result?.Value}");
 
-                    if (balance.Result.Value > 0)
+                    if (balance.Result?.Value > 0)
                     {
                         string output = $"12 Seed: {mnemonicWords} | address:{String.Join(", ", wallet.Account.PublicKey)} | {wallet.Account.PrivateKey}";
                         string filePath = Path.Combine(currentDirectory, "btc-wallet.txt");
